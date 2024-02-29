@@ -1,0 +1,17 @@
+First mymalloc() checks if there is a free segment in the segment table using the 
+findFree() function. If a free segment is found it checks if the size of the free segment is an exact 
+match of the size needed. If the size matches, the address of the free memory can be returned, else 
+the segment needs to be split into two. The segment is split by setting the size of the free segment to 
+the needed size and creating a second segment with a size equal to the difference between the size 
+of the original segment and the size of the memory needed. This new segment is then inserted 
+behind the free segment using the insertAfter() function and the address of the free segment is 
+returned. 
+
+printsegmenttable()
+Arguments: printsegmenttable() does not take any arguments.
+Return values: printsegmenttable() does not return any values.
+Implementation: At the beginning printsegmenttable() creates two variables to keep track of the 
+number of segments and to keep track of the current segment in the segment table that is 
+implemented as a singly linked list. It then proceeds to loop through the linked list until it has reached 
+the end. At every step, it prints the value of the segment counter and uses the provided 
+printsegmentdescriptor() function to print all details of the segment.
